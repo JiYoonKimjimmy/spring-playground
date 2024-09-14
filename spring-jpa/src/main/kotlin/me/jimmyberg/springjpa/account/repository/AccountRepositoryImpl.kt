@@ -4,16 +4,16 @@ import me.jimmyberg.springjpa.account.repository.entity.AccountEntity
 import org.springframework.stereotype.Repository
 
 @Repository
-class AccountsRepositoryImpl(
-    private val accountsJpaRepository: AccountsJpaRepository
-) : AccountsRepository {
+class AccountRepositoryImpl(
+    private val accountJpaRepository: AccountJpaRepository
+) : AccountRepository {
 
     override fun save(entity: AccountEntity): AccountEntity {
-        return accountsJpaRepository.save(entity)
+        return accountJpaRepository.save(entity)
     }
 
     override fun findByAccountNo(accountNo: String): AccountEntity? {
-        return accountsJpaRepository.findByAccountNo(accountNo)
+        return accountJpaRepository.findByAccountNo(accountNo)
     }
 
 }
