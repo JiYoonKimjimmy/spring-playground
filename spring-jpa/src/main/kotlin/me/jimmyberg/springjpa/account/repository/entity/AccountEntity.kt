@@ -13,6 +13,12 @@ class AccountEntity(
     val beforeAmount: Long,
 ) {
 
+    constructor(accountNo: String): this(
+        accountNo = accountNo,
+        amount = 0,
+        beforeAmount = 0
+    )
+
     fun incrementAmount(amount: Long): AccountEntity {
         this.amount += amount
         return this
