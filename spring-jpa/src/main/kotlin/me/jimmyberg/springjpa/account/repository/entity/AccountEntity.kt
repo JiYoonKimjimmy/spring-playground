@@ -9,6 +9,13 @@ class AccountEntity(
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     val id: Long? = null,
     val accountNo: String,
-    val amount: Long,
+    var amount: Long,
     val beforeAmount: Long,
-)
+) {
+
+    fun incrementAmount(amount: Long): AccountEntity {
+        this.amount += amount
+        return this
+    }
+
+}

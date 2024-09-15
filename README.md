@@ -11,14 +11,7 @@
 
 ## Spring Data JPA
 
-- Entity 영속성 관리
-- `@Transactional` 애노테이션 활용
-- `Optimistic Lock` 낙관적 락 vs `Pessimistic Lock` 비관적 락
-- Entity 관계 매핑 관리
-- Dynamic Query 지원 라이브러리
-    - QueryDSL
-    - KotlinJDSL
-- **Exposed** 적용 & 비교 
+- [Spring Data JPA 정리 내용](/spring-jpa/README.md)
 
 ---
 
