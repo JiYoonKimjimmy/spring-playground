@@ -1,8 +1,6 @@
 package me.jimmyberg.springjpa.account.repository.study
 
-import me.jimmyberg.springjpa.account.repository.AccountJpaRepository
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntity
-import me.jimmyberg.springjpa.util.printLog
 import me.jimmyberg.springjpa.util.printStep
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Repository
@@ -10,9 +8,7 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 
 @Repository
-class AccountTransactionStudyRepository(
-    private val accountJpaRepository: AccountJpaRepository
-) {
+class AccountTransactionStudyRepository : AccountStudyRepository() {
     // logger
     private val logger = LoggerFactory.getLogger(this::class.java)
 
@@ -72,20 +68,6 @@ class AccountTransactionStudyRepository(
     fun test05Sub(entity: AccountEntity, amount: Long): AccountEntity {
         val saved = saveEntity(entity.incrementAmount(amount))
         return saved.also { logger.printStep(2) }
-    }
-
-    private fun findEntity(accountNo: String): AccountEntity {
-        logger.printLog("START [findByAccountNo]")
-        val find = accountJpaRepository.findByAccountNo(accountNo) ?: AccountEntity(accountNo = accountNo)
-        logger.printLog("END [findByAccountNo]")
-        return find
-    }
-
-    private fun saveEntity(entity: AccountEntity): AccountEntity {
-        logger.printLog("START [saveEntity]")
-        val saved = accountJpaRepository.save(entity)
-        logger.printLog("END [saveEntity]")
-        return saved
     }
 
 }

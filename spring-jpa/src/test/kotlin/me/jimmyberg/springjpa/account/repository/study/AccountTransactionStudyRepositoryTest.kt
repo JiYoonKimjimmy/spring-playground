@@ -4,11 +4,10 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import me.jimmyberg.springjpa.test.AccountFixture
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class AccountTransactionStudyRepositoryTest @Autowired constructor(
+class AccountTransactionStudyRepositoryTest(
     private val repository: AccountTransactionStudyRepository
 ) : StringSpec({
 
