@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class AccountTransactionRepositoryTest @Autowired constructor(
-    private val repository: AccountTransactionRepository
+class AccountTransactionStudyRepositoryTest @Autowired constructor(
+    private val repository: AccountTransactionStudyRepository
 ) : StringSpec({
 
     val accountFixture = AccountFixture()

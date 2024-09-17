@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 
 @Repository
-class AccountTransactionRepository(
+class AccountTransactionStudyRepository(
     private val accountJpaRepository: AccountJpaRepository
 ) {
     // logger
