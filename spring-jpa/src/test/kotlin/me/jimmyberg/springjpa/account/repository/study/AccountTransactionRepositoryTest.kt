@@ -1,4 +1,4 @@
-package me.jimmyberg.springjpa.account.repository
+package me.jimmyberg.springjpa.account.repository.study
 
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.longs.shouldBeGreaterThan
@@ -8,19 +8,24 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-class AccountRepository01Test @Autowired constructor(
-    private val accountRepository: AccountRepository01
+class AccountTransactionRepositoryTest @Autowired constructor(
+    private val repository: AccountTransactionRepository
 ) : StringSpec({
 
     val accountFixture = AccountFixture()
 
     "test01 테스트 정상 확인한다" {
+        /**
+         * 1. select
+         * 2. insert
+         * 3. commit
+         */
         // given
         val accountNo = accountFixture.generateAccountNo()
         val amount = 10000L
 
         // when
-        val result = accountRepository.test01(accountNo, amount)
+        val result = repository.test01(accountNo, amount)
 
         // then
         result.id!! shouldBeGreaterThan 0
@@ -28,12 +33,18 @@ class AccountRepository01Test @Autowired constructor(
     }
 
     "test02 테스트 정상 확인한다" {
+        /**
+         * 1. select
+         * 2. insert
+         * 3. select > update
+         * 4. commit
+         */
         // given
         val accountNo = accountFixture.generateAccountNo()
         val amount = 10000L
 
         // when
-        val result = accountRepository.test02(accountNo, amount)
+        val result = repository.test02(accountNo, amount)
 
         // then
         result.id!! shouldBeGreaterThan 0
@@ -41,12 +52,18 @@ class AccountRepository01Test @Autowired constructor(
     }
 
     "test03 테스트 정상 확인한다" {
+        /**
+         * 1. select
+         * 2. insert
+         * 3. update
+         * 4. commit
+         */
         // given
         val accountNo = accountFixture.generateAccountNo()
         val amount = 10000L
 
         // when
-        val result = accountRepository.test03(accountNo, amount)
+        val result = repository.test03(accountNo, amount)
 
         // then
         result.id!! shouldBeGreaterThan 0
@@ -54,12 +71,18 @@ class AccountRepository01Test @Autowired constructor(
     }
 
     "test04 테스트 정상 확인한다" {
+        /**
+         * 1. select
+         * 2. insert
+         * 3. commit
+         * 4. update
+         */
         // given
         val accountNo = accountFixture.generateAccountNo()
         val amount = 10000L
 
         // when
-        val result = accountRepository.test04(accountNo, amount)
+        val result = repository.test04(accountNo, amount)
 
         // then
         result.id!! shouldBeGreaterThan 0
@@ -67,12 +90,18 @@ class AccountRepository01Test @Autowired constructor(
     }
 
     "test05 테스트 정상 확인한다" {
+        /**
+         * 1. select
+         * 2. insert
+         * 3. commit
+         * 4. update
+         */
         // given
         val accountNo = accountFixture.generateAccountNo()
         val amount = 10000L
 
         // when
-        val result = accountRepository.test05(accountNo, amount)
+        val result = repository.test05(accountNo, amount)
 
         // then
         result.id!! shouldBeGreaterThan 0

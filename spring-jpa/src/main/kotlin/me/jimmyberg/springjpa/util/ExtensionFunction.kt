@@ -14,6 +14,6 @@ fun Logger.printLog(message: String? = null) {
     message?.let { this.info(it) }
 }
 
-fun Logger.printLog(stepIndex: Int? = null) {
+fun Logger.printStep(stepIndex: Int? = null) {
     stepIndex?.let { this.info("step-$it") } ?: this.info("")
 }
