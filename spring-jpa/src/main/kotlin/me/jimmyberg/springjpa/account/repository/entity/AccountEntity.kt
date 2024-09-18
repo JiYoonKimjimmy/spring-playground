@@ -23,7 +23,7 @@ class AccountEntity(
     fun incrementAmount(amount: Long): AccountEntity {
         val logger = LoggerFactory.getLogger("$this")
         logger.info("START [incrementAmount]")
-        this.beforeAmount = amount
+        this.beforeAmount = this.amount
         this.amount += amount
         logger.info("END [incrementAmount]")
         return this

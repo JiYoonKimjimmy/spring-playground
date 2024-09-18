@@ -19,10 +19,15 @@ class AccountService(
             ?: throw IllegalArgumentException("No account entity found")
     }
 
+    fun incrementAmountWithoutTransaction(accountNo: String, amount: Long): AccountEntity {
+        val entity = findEntity(accountNo).incrementAmount(amount)
+        return accountRepository.save(entity)
+    }
+
     @Transactional
     fun incrementAmount(accountNo: String, amount: Long): AccountEntity {
-        val account = findEntity(accountNo)
-        return account.incrementAmount(amount)
+        val entity = findEntity(accountNo)
+        return entity.incrementAmount(amount)
     }
 
 }

@@ -1,0 +1,21 @@
+### post account
+POST http://localhost:8080/account
+Content-Type: application/json
+
+{
+  "accountNo": "1234",
+  "amount": 10000,
+  "beforeAmount": 0
+}
+
+### get account
+GET http://localhost:8080/account/1234
+Content-Type: application/json
+
+### put account
+PUT http://localhost:8080/account/1234?amount=10000
+Content-Type: application/json
+
+### put account no-transaction
+PUT http://localhost:8080/account/1234/no-transaction?amount=10000
+Content-Type: application/json

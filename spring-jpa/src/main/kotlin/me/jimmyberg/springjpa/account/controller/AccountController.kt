@@ -20,6 +20,14 @@ class AccountController(
         return accountService.findEntity(accountNo)
     }
 
+    @PutMapping("/account/{accountNo}/no-transaction")
+    fun incrementAmountWithoutTransaction(
+        @PathVariable accountNo: String,
+        @PathParam("amount") amount: Long
+    ): AccountEntity {
+        return accountService.incrementAmountWithoutTransaction(accountNo, amount)
+    }
+
     @PutMapping("/account/{accountNo}")
     fun incrementAmount(
         @PathVariable accountNo: String,
