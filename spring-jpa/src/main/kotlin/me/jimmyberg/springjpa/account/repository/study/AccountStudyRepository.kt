@@ -6,6 +6,7 @@ import me.jimmyberg.springjpa.util.printLog
 import org.slf4j.LoggerFactory
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Repository
+import java.util.UUID
 
 @Repository
 class AccountStudyRepository {
@@ -15,11 +16,18 @@ class AccountStudyRepository {
     // logger
     private val logger = LoggerFactory.getLogger(this::class.java)
 
+    fun findEntity(id: Long): AccountEntity {
+        logger.printLog("START [findById]")
+        val find = accountJpaRepository.findById(id).orElse(null)
+        logger.printLog("END [findById] : ${find != null}")
+        return find ?: AccountEntity(accountNo = UUID.randomUUID().toString())
+    }
+
     fun findEntity(accountNo: String): AccountEntity {
         logger.printLog("START [findByAccountNo]")
-        val find = accountJpaRepository.findByAccountNo(accountNo) ?: AccountEntity(accountNo = accountNo)
-        logger.printLog("END [findByAccountNo]")
-        return find
+        val find = accountJpaRepository.findByAccountNo(accountNo)
+        logger.printLog("END [findByAccountNo] : ${find != null}")
+        return find ?: AccountEntity(accountNo = accountNo)
     }
 
     fun saveEntity(entity: AccountEntity): AccountEntity {
