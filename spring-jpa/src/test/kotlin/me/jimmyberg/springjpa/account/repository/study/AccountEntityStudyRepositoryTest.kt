@@ -114,9 +114,8 @@ class AccountEntityStudyRepositoryTest(
     "test03Sub 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. select
-         * 3. commit
-         * 4. update
+         * 2. commit
+         * 3. update
          */
         // given
         val id = saved.id!!
