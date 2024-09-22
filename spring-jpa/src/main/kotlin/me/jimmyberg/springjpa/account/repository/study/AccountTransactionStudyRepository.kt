@@ -13,61 +13,9 @@ class AccountTransactionStudyRepository : AccountStudyRepository() {
     private val logger = LoggerFactory.getLogger(this::class.java)
 
     fun test01(accountNo: String, amount: Long): AccountEntity {
-        val entity = findEntity(accountNo)
-        return saveEntity(entity.incrementAmount(amount))
-    }
-
-    fun test02(accountNo: String, amount: Long): AccountEntity {
-        val entity = findEntity(accountNo).also { logger.printStep(1) }
-        test02Sub(entity, amount)
-        val saved = saveEntity(entity.incrementAmount(amount))
-        return saved.also { logger.printStep(3) }
-    }
-
-    private fun test02Sub(entity: AccountEntity, amount: Long): AccountEntity {
-        val saved = saveEntity(entity.incrementAmount(amount))
-        return saved.also { logger.printStep(2) }
-    }
-
-    @Transactional
-    fun test03(accountNo: String, amount: Long): AccountEntity {
-        val entity = findEntity(accountNo).also { logger.printStep(1) }
-        test03Sub(entity, amount)
-        val saved = saveEntity(entity.incrementAmount(amount))
-        return saved.also { logger.printStep(3) }
-    }
-
-    private fun test03Sub(entity: AccountEntity, amount: Long): AccountEntity {
-        val saved = saveEntity(entity.incrementAmount(amount))
-        return saved.also { logger.printStep(2) }
-    }
-
-    @Transactional
-    fun test04(accountNo: String, amount: Long): AccountEntity {
-        val entity = findEntity(accountNo).also { logger.printStep(1) }
-        test04Sub(entity, amount)
-        val saved = saveEntity(entity.incrementAmount(amount))
-        return saved.also { logger.printStep(3) }
-    }
-
-    @Transactional
-    fun test04Sub(entity: AccountEntity, amount: Long): AccountEntity {
-        val saved = saveEntity(entity.incrementAmount(amount))
-        return saved.also { logger.printStep(2) }
-    }
-
-    @Transactional
-    fun test05(accountNo: String, amount: Long): AccountEntity {
-        val entity = findEntity(accountNo).also { logger.printStep(1) }
-        test05Sub(entity, amount)
-        val saved = saveEntity(entity.incrementAmount(amount))
-        return saved.also { logger.printStep(3) }
-    }
-
-    @Transactional(propagation = Propagation.REQUIRES_NEW)
-    fun test05Sub(entity: AccountEntity, amount: Long): AccountEntity {
-        val saved = saveEntity(entity.incrementAmount(amount))
-        return saved.also { logger.printStep(2) }
+        val entity = findEntity(accountNo).printStep(1)
+        entity.incrementAmount(amount).printStep(2)
+        return saveEntity(entity).printStep(3)
     }
 
 }
