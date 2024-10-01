@@ -3,7 +3,6 @@ package me.jimmyberg.springjpa.account.repository.study
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
-import me.jimmyberg.springjpa.test.AccountFixture
 import me.jimmyberg.springjpa.util.generateUUID
 import org.springframework.boot.test.context.SpringBootTest
 
@@ -11,8 +10,6 @@ import org.springframework.boot.test.context.SpringBootTest
 class AccountTransactionStudyRepositoryTest(
     private val repository: AccountTransactionStudyRepository
 ) : StringSpec({
-
-    val accountFixture = AccountFixture()
 
     "test01 테스트 정상 확인한다" {
         /**
