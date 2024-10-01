@@ -5,6 +5,7 @@ import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import me.jimmyberg.springjpa.test.AccountFixture
+import me.jimmyberg.springjpa.util.generateUUID
 import me.jimmyberg.springjpa.util.printLine
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
@@ -42,7 +43,7 @@ class AccountsRepositoryImplTest @Autowired constructor(
 
     "'accountNo' 기준 Account Entity 조회하여 'amount' 업데이트하여 저장 정상 확인한다" {
         // given
-        val accountNo = accountFixture.generateAccountNo()
+        val accountNo = generateUUID()
         val entity = accountJpaRepository.findByAccountNo(accountNo) ?: accountFixture.generateEntity(accountNo)
 
         printLine("step-1")

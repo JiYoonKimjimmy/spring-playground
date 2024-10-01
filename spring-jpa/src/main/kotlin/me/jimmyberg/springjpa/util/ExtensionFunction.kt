@@ -16,10 +16,6 @@ fun Logger.printLog(message: String? = null) {
     message?.let { this.info(it) }
 }
 
-fun Logger.printStep(stepIndex: Int) {
-    this.info("step-$stepIndex")
-}
-
 fun <T> T.printStep(stepIndex: Int? = null): T {
     val logger = LoggerFactory.getLogger("$this")
     return this.also { logger.info("step-$stepIndex") }

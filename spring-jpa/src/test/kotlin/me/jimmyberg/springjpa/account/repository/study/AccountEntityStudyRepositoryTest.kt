@@ -7,6 +7,7 @@ import io.kotest.matchers.shouldNotBe
 import me.jimmyberg.springjpa.account.repository.AccountJpaRepository
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntity
 import me.jimmyberg.springjpa.test.AccountFixture
+import me.jimmyberg.springjpa.util.generateUUID
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.transaction.annotation.Transactional
 import java.util.*
@@ -24,8 +25,8 @@ class AccountEntityStudyRepositoryTest(
     lateinit var saved2: AccountEntity
 
     beforeTest {
-        saved = accountJpaRepository.save(accountFixture.generateEntity(accountFixture.generateAccountNo(), 10000))
-        saved2 = accountJpaRepository.save(accountFixture.generateEntity(accountFixture.generateAccountNo()))
+        saved = accountJpaRepository.save(accountFixture.generateEntity(generateUUID(), 10000))
+        saved2 = accountJpaRepository.save(accountFixture.generateEntity(generateUUID()))
     }
 
     "test01 테스트 정상 확인한다" {
@@ -313,8 +314,8 @@ class AccountEntityStudyRepositoryTest(
          * 3. commit
          */
         // given
-        val accountNo1 = accountFixture.generateAccountNo()
-        val accountNo2 = accountFixture.generateAccountNo()
+        val accountNo1 = generateUUID()
+        val accountNo2 = generateUUID()
 
         // when
         repository.test12(accountNo1, accountNo2)
@@ -331,8 +332,8 @@ class AccountEntityStudyRepositoryTest(
          * 3. commit
          */
         // given
-        val accountNo1 = accountFixture.generateAccountNo()
-        val accountNo2 = accountFixture.generateAccountNo()
+        val accountNo1 = generateUUID()
+        val accountNo2 = generateUUID()
 
         // when
         repository.test13(accountNo1, accountNo2)

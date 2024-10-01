@@ -5,13 +5,13 @@ import org.slf4j.LoggerFactory
 
 @Table(name = "ACCOUNTS")
 @Entity
-class AccountEntity(
+open class AccountEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id: Long? = null,
-    val accountNo: String,
-    var amount: Long,
-    var beforeAmount: Long,
+    open val id: Long? = null,
+    open val accountNo: String,
+    open var amount: Long,
+    open var beforeAmount: Long,
 ) {
 
     constructor(accountNo: String): this(
