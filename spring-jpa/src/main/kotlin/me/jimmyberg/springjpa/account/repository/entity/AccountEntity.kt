@@ -4,7 +4,7 @@ import jakarta.persistence.*
 import org.slf4j.LoggerFactory
 
 @Table(name = "ACCOUNTS")
-@Entity(name = "Account")
+@Entity
 class AccountEntity(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
