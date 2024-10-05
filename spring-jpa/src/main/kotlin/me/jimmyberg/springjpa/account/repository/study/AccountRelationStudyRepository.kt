@@ -36,4 +36,8 @@ class AccountRelationStudyRepository(
         return accountJpaRepositoryV2.save(account).printStep(3)
     }
 
+    fun test04(accountId: Long) {
+        accountJpaRepositoryV2.deleteById(accountId)
+    }
+
 }
