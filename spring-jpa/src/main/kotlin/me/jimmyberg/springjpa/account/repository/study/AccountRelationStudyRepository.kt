@@ -37,7 +37,12 @@ class AccountRelationStudyRepository(
     }
 
     fun test04(accountId: Long) {
-        accountJpaRepositoryV2.deleteById(accountId)
+        accountJpaRepositoryV2.deleteById(accountId).printStep(1)
+    }
+
+    @Transactional
+    fun test05(accountId: Long) {
+        accountJpaRepositoryV2.deleteById(accountId).printStep(1)
     }
 
 }

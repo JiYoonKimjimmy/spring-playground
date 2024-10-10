@@ -91,10 +91,21 @@ class AccountRelationStudyRepositoryTest(
         // given
         val saved = saveAccountEntity()
 
-        // when
+        // when then
         repository.test04(saved.id!!)
+    }
 
-        // then
+    "test05 테스트 정상 확인한다" {
+        /**
+         * 1. commit
+         * 2. delete account
+         * 3. delete member
+         */
+        // given
+        val saved = saveAccountEntity()
+
+        // when then
+        repository.test05(saved.id!!)
     }
 
 
