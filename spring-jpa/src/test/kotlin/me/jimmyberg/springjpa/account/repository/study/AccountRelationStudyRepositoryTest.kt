@@ -6,6 +6,7 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import me.jimmyberg.springjpa.account.repository.AccountJpaRepositoryV2
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntityV2
+import me.jimmyberg.springjpa.card.repository.entity.CardEntity
 import me.jimmyberg.springjpa.test.AccountFixture
 import me.jimmyberg.springjpa.test.MemberFixture
 import me.jimmyberg.springjpa.util.generateUUID
@@ -108,5 +109,119 @@ class AccountRelationStudyRepositoryTest(
         repository.test05(saved.id!!)
     }
 
+    "test06 테스트 정상 확인한다" {
+        /**
+         * 1. select
+         * 2. commit
+         */
+        // given
+        val saved = saveAccountEntity()
+        val card = CardEntity(cardNo = generateUUID(), cardName = "테스트 카드")
+
+        // when
+        val result = repository.test06(saved.id!!, card)
+
+        // then
+        result.id shouldBe saved.id
+        result.getCard()?.id shouldBe null
+    }
+
+    "test07 테스트 정상 확인한다" {
+        /**
+         * 1. insert card
+         * 2. select account member
+         * 3. select account member card
+         * 4. select card
+         * 5. update account
+         * 6. commit
+         */
+        // given
+        val saved = saveAccountEntity()
+        val card = CardEntity(cardNo = generateUUID(), cardName = "테스트 카드")
+
+        // when
+        val result = repository.test07(saved.id!!, card)
+
+        // then
+        result.id shouldBe saved.id
+        result.getCard()?.id shouldBe 1
+    }
+
+    "test08 테스트 정상 확인한다" {
+        /**
+         * 1. select account member
+         * 2. select account member card
+         * 3. insert card
+         * 4. update account
+         * 5. commit
+         */
+        // given
+        val saved = saveAccountEntity()
+        val card = CardEntity(cardNo = generateUUID(), cardName = "테스트 카드")
+
+        // when
+        val result = repository.test08(saved.id!!, card)
+
+        // then
+        result.id shouldBe saved.id
+        result.getCard()?.id shouldBe 1
+    }
+
+    "test09 테스트 정상 확인한다" {
+        /**
+         * 1. select account member
+         * 2. insert card
+         * 3. update account
+         * 4. commit
+         */
+        // given
+        val saved = saveAccountEntity()
+        val card = CardEntity(cardNo = generateUUID(), cardName = "테스트 카드")
+
+        // when
+        val result = repository.test09(saved.id!!, card)
+
+        // then
+        result.id shouldBe saved.id
+        result.getCard()?.id shouldBe 1
+    }
+
+    "test10 테스트 정상 확인한다" {
+        /**
+         * 1. select account member
+         * 2. commit
+         * 3. insert card
+         * 4. update account
+         */
+        // given
+        val saved = saveAccountEntity()
+        val card = CardEntity(cardNo = generateUUID(), cardName = "테스트 카드")
+
+        // when
+        val result = repository.test10(saved.id!!, card)
+
+        // then
+        result.id shouldBe saved.id
+        result.getCard()?.id shouldBe 1
+    }
+
+    "test11 테스트 정상 확인한다" {
+        /**
+         * 1. select account member
+         * 3. insert card
+         * 2. commit
+         * 4. update account
+         */
+        // given
+        val saved = saveAccountEntity()
+        val card = CardEntity(cardNo = generateUUID(), cardName = "테스트 카드")
+
+        // when
+        val result = repository.test11(saved, card)
+
+        // then
+        result.id shouldBe saved.id
+        result.getCard()?.id shouldBe 1
+    }
 
 })
