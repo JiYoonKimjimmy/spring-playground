@@ -1,7 +1,6 @@
 package me.jimmyberg.springjpa.account.repository.study
 
 import me.jimmyberg.springjpa.account.repository.AccountJpaRepositoryV2
-import me.jimmyberg.springjpa.account.repository.entity.AccountEntity
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntityV2
 import me.jimmyberg.springjpa.card.repository.CardJpaRepository
 import me.jimmyberg.springjpa.card.repository.entity.CardEntity
