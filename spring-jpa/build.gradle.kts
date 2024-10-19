@@ -8,6 +8,8 @@ plugins {
 
     id("org.springframework.boot") version springVersion
     id("io.spring.dependency-management") version "1.1.6"
+
+    `java-test-fixtures`
 }
 
 group = "me.jimmyberg"
