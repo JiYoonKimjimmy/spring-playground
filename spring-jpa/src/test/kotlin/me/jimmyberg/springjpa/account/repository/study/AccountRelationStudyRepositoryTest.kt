@@ -49,7 +49,7 @@ class AccountRelationStudyRepositoryTest(
         /**
          * 1. insert member
          * 2. insert account
-         * 3. commit
+         * 3. flush
          */
         // given
         val accountNo = generateUUID()
@@ -68,7 +68,7 @@ class AccountRelationStudyRepositoryTest(
         /**
          * 1. insert member
          * 2. insert account
-         * 3. commit
+         * 3. flush
          */
         // given
         val accountNo = generateUUID()
@@ -87,7 +87,7 @@ class AccountRelationStudyRepositoryTest(
         /**
          * 1. delete account
          * 2. delete member
-         * 3. commit
+         * 3. flush
          */
         // given
         val saved = saveAccountEntity()
@@ -98,7 +98,7 @@ class AccountRelationStudyRepositoryTest(
 
     "test05 테스트 정상 확인한다" {
         /**
-         * 1. commit
+         * 1. flush
          * 2. delete account
          * 3. delete member
          */
@@ -112,7 +112,7 @@ class AccountRelationStudyRepositoryTest(
     "test06 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. commit
+         * 2. flush
          */
         // given
         val saved = saveAccountEntity()
@@ -133,7 +133,7 @@ class AccountRelationStudyRepositoryTest(
          * 3. select account member card
          * 4. select card
          * 5. update account
-         * 6. commit
+         * 6. flush
          */
         // given
         val saved = saveAccountEntity()
@@ -153,7 +153,7 @@ class AccountRelationStudyRepositoryTest(
          * 2. select account member card
          * 3. insert card
          * 4. update account
-         * 5. commit
+         * 5. flush
          */
         // given
         val saved = saveAccountEntity()
@@ -172,7 +172,7 @@ class AccountRelationStudyRepositoryTest(
          * 1. select account member
          * 2. insert card
          * 3. update account
-         * 4. commit
+         * 4. flush
          */
         // given
         val saved = saveAccountEntity()
@@ -189,7 +189,7 @@ class AccountRelationStudyRepositoryTest(
     "test10 테스트 정상 확인한다" {
         /**
          * 1. select account member
-         * 2. commit
+         * 2. flush
          * 3. insert card
          * 4. update account
          */
@@ -209,7 +209,7 @@ class AccountRelationStudyRepositoryTest(
         /**
          * 1. select account member
          * 3. insert card
-         * 2. commit
+         * 2. flush
          * 4. update account
          */
         // given

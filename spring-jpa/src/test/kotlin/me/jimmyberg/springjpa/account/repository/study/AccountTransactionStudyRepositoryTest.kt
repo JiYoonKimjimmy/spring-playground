@@ -15,7 +15,7 @@ class AccountTransactionStudyRepositoryTest(
         /**
          * 1. select
          * 2. insert
-         * 3. commit
+         * 3. flush
          */
         // given
         val accountNo = generateUUID()

@@ -32,7 +32,7 @@ class AccountEntityStudyRepositoryTest(
     "test01 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. commit
+         * 2. flush
          */
         // given
         val accountNo = saved.accountNo
@@ -54,7 +54,7 @@ class AccountEntityStudyRepositoryTest(
         /**
          * 1. select
          * 2. select > update
-         * 3. commit
+         * 3. flush
          */
         // given
         val accountNo = saved.accountNo
@@ -75,7 +75,7 @@ class AccountEntityStudyRepositoryTest(
     "test02 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. commit
+         * 2. flush
          * 3. update
          */
         // given
@@ -95,7 +95,7 @@ class AccountEntityStudyRepositoryTest(
         /**
          * 1. select
          * 2. select
-         * 3. commit
+         * 3. flush
          * 4. update
          */
         // given
@@ -115,7 +115,7 @@ class AccountEntityStudyRepositoryTest(
     "test03Sub 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. commit
+         * 2. flush
          * 3. update
          */
         // given
@@ -135,7 +135,7 @@ class AccountEntityStudyRepositoryTest(
     "test04 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. commit
+         * 2. flush
          * 3. update
          */
         // given
@@ -156,7 +156,7 @@ class AccountEntityStudyRepositoryTest(
         /**
          * 1. select
          * 2. select
-         * 3. commit
+         * 3. flush
          * 4. update
          */
         // given
@@ -175,7 +175,7 @@ class AccountEntityStudyRepositoryTest(
     "test06 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. commit
+         * 2. flush
          * 3. update
          */
         // given
@@ -195,7 +195,7 @@ class AccountEntityStudyRepositoryTest(
     "test07 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. commit
+         * 2. flush
          * 3. update
          */
         // given
@@ -215,7 +215,7 @@ class AccountEntityStudyRepositoryTest(
     "test08 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. commit
+         * 2. flush
          * 3. update
          */
         // given
@@ -237,7 +237,7 @@ class AccountEntityStudyRepositoryTest(
          * 1. select
          * 2. select
          * 3. insert
-         * 4. commit
+         * 4. flush
          * 5. update
          */
         // given
@@ -261,7 +261,7 @@ class AccountEntityStudyRepositoryTest(
         /**
          * 1. select
          * 2. select
-         * 3. commit
+         * 3. flush
          * 4. update
          * 5. update
          */
@@ -286,7 +286,7 @@ class AccountEntityStudyRepositoryTest(
         /**
          * 1. select
          * 2. select
-         * 3. commit
+         * 3. flush
          * 4. update
          * 5. update
          */
@@ -311,7 +311,7 @@ class AccountEntityStudyRepositoryTest(
         /**
          * 1. insert
          * 2. insert
-         * 3. commit
+         * 3. flush
          */
         // given
         val accountNo1 = generateUUID()
@@ -329,7 +329,7 @@ class AccountEntityStudyRepositoryTest(
         /**
          * 1. insert
          * 2. insert
-         * 3. commit
+         * 3. flush
          */
         // given
         val accountNo1 = generateUUID()
