@@ -4,7 +4,7 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import me.jimmyberg.springjpa.test.AccountFixture
+import me.jimmyberg.springjpa.account.repository.entity.AccountEntityFixture
 import me.jimmyberg.springjpa.util.generateUUID
 import me.jimmyberg.springjpa.util.printLine
 import org.springframework.beans.factory.annotation.Autowired
@@ -15,11 +15,11 @@ class AccountsRepositoryImplTest @Autowired constructor(
     private val accountJpaRepository: AccountJpaRepository
 ) : StringSpec({
 
-    val accountFixture = AccountFixture()
+    val accountEntityFixture = AccountEntityFixture()
 
     "Account Entity 생성하여 DB 정보 정상 확인한다" {
         // given
-        val entity = accountFixture.generateEntity()
+        val entity = accountEntityFixture.make()
 
         // when
         val result = accountJpaRepository.save(entity)
@@ -31,7 +31,7 @@ class AccountsRepositoryImplTest @Autowired constructor(
 
     "Account Entity 정보 조회하여 `amount = 10000` 프로퍼티 변경하여 `insert` 쿼리 수행 정상 확인한다" {
         // given
-        val entity = accountFixture.generateEntity()
+        val entity = accountEntityFixture.make()
 
         // when
         val result = entity.incrementAmount(10000)
@@ -44,7 +44,7 @@ class AccountsRepositoryImplTest @Autowired constructor(
     "'accountNo' 기준 Account Entity 조회하여 'amount' 업데이트하여 저장 정상 확인한다" {
         // given
         val accountNo = generateUUID()
-        val entity = accountJpaRepository.findByAccountNo(accountNo) ?: accountFixture.generateEntity(accountNo)
+        val entity = accountJpaRepository.findByAccountNo(accountNo) ?: accountEntityFixture.make(accountNo)
 
         printLine("step-1")
 

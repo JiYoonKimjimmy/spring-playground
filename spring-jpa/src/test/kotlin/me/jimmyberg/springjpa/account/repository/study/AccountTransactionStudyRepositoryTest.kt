@@ -6,7 +6,7 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import me.jimmyberg.springjpa.account.repository.AccountJpaRepository
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntity
-import me.jimmyberg.springjpa.test.AccountFixture
+import me.jimmyberg.springjpa.account.repository.entity.AccountEntityFixture
 import me.jimmyberg.springjpa.util.generateUUID
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.transaction.annotation.Transactional
@@ -19,14 +19,14 @@ class AccountTransactionStudyRepositoryTest(
     private val accountJpaRepository: AccountJpaRepository
 ) : StringSpec({
 
-    val accountFixture = AccountFixture()
+    val accountEntityFixture = AccountEntityFixture()
 
     lateinit var saved: AccountEntity
     lateinit var saved2: AccountEntity
 
     beforeTest {
-        saved = accountJpaRepository.save(accountFixture.generateEntity(generateUUID(), 10000))
-        saved2 = accountJpaRepository.save(accountFixture.generateEntity(generateUUID()))
+        saved = accountJpaRepository.save(accountEntityFixture.make(generateUUID(), 10000))
+        saved2 = accountJpaRepository.save(accountEntityFixture.make(generateUUID()))
     }
 
     "test01 테스트 정상 확인한다" {

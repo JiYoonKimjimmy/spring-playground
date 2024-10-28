@@ -7,8 +7,8 @@ import io.kotest.matchers.shouldNotBe
 import me.jimmyberg.springjpa.account.repository.AccountJpaRepositoryV2
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntityV2
 import me.jimmyberg.springjpa.card.repository.entity.CardEntity
-import me.jimmyberg.springjpa.test.AccountFixture
-import me.jimmyberg.springjpa.test.MemberFixture
+import me.jimmyberg.springjpa.account.repository.entity.AccountEntityFixture
+import me.jimmyberg.springjpa.member.repository.entity.MemberEntityFixture
 import me.jimmyberg.springjpa.util.generateUUID
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.dao.InvalidDataAccessApiUsageException
@@ -21,13 +21,13 @@ class AccountRelationStudyRepositoryTest(
     private val accountJpaRepository: AccountJpaRepositoryV2
 ) : StringSpec({
 
-    val accountFixture = AccountFixture()
-    val memberFixture = MemberFixture()
+    val accountEntityFixture = AccountEntityFixture()
+    val memberEntityFixture = MemberEntityFixture()
 
     val saveAccountEntity: () -> AccountEntityV2 = {
-        val entity = accountFixture.generateEntityV2(
+        val entity = accountEntityFixture.make(
             accountNo = generateUUID(),
-            member = memberFixture.generateEntity(name = "Jim")
+            member = memberEntityFixture.generateEntity(name = "Jim")
         )
         accountJpaRepository.save(entity)
     }
