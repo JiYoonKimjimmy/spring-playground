@@ -53,7 +53,7 @@ class AccountTransactionStudyRepositoryTest(
     "test01Sub 테스트 정상 확인한다" {
         /**
          * 1. select
-         * 2. select > update
+         * 2. select & update
          * 3. flush
          */
         // given
@@ -234,11 +234,11 @@ class AccountTransactionStudyRepositoryTest(
 
     "test09 테스트 정상 확인한다" {
         /**
-         * 1. select
-         * 2. select
-         * 3. insert
+         * 1. select entity1
+         * 2. select entity2
+         * 3. insert entity2
          * 4. flush
-         * 5. update
+         * 5. update entity1
          */
         // given
         val id = saved.id!!
@@ -259,11 +259,11 @@ class AccountTransactionStudyRepositoryTest(
 
     "test10 테스트 정상 확인한다" {
         /**
-         * 1. select
-         * 2. select
+         * 1. select entity1
+         * 2. select entity2
          * 3. flush
-         * 4. update
-         * 5. update
+         * 4. update entity1
+         * 5. update entity2
          */
         // given
         val id = saved.id!!
@@ -284,11 +284,11 @@ class AccountTransactionStudyRepositoryTest(
 
     "test11 테스트 정상 확인한다" {
         /**
-         * 1. select
-         * 2. select
+         * 1. select entity1
+         * 2. select entity2
          * 3. flush
-         * 4. update
-         * 5. update
+         * 4. update entity1
+         * 5. update entity2
          */
         // given
         val id = saved.id!!
@@ -300,17 +300,17 @@ class AccountTransactionStudyRepositoryTest(
 
         // then
         val entity1 = accountJpaRepository.findById(id).orElse(null)!!
+        val entity2 = accountJpaRepository.findByAccountNo(accountNo)!!
+
         entity1.id shouldBe result.id
         entity1.amount shouldBe 20000
-
-        val entity2 = accountJpaRepository.findByAccountNo(accountNo)!!
         entity2.amount shouldBe 10000
     }
 
     "test12 테스트 정상 확인한다" {
         /**
-         * 1. insert
-         * 2. insert
+         * 1. insert entity1
+         * 2. insert entity2
          * 3. flush
          */
         // given
@@ -321,14 +321,14 @@ class AccountTransactionStudyRepositoryTest(
         repository.test12(accountNo1, accountNo2)
 
         // then
-        accountJpaRepository.findByAccountNo(accountNo1) shouldNotBe null
-        accountJpaRepository.findByAccountNo(accountNo2) shouldNotBe null
+        accountJpaRepository.findByAccountNo(accountNo1)?.accountNo shouldBe accountNo1
+        accountJpaRepository.findByAccountNo(accountNo2)?.accountNo shouldBe accountNo2
     }
 
     "test13 테스트 정상 확인한다" {
         /**
-         * 1. insert
-         * 2. insert
+         * 1. insert entity1
+         * 2. insert entity2
          * 3. flush
          */
         // given
@@ -339,8 +339,8 @@ class AccountTransactionStudyRepositoryTest(
         repository.test13(accountNo1, accountNo2)
 
         // then
-        accountJpaRepository.findByAccountNo(accountNo1) shouldNotBe null
-        accountJpaRepository.findByAccountNo(accountNo2) shouldNotBe null
+        accountJpaRepository.findByAccountNo(accountNo1)?.accountNo shouldBe accountNo1
+        accountJpaRepository.findByAccountNo(accountNo2)?.accountNo shouldBe accountNo2
     }
 
 })
