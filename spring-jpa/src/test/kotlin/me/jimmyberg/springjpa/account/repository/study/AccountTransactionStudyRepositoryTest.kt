@@ -7,13 +7,10 @@ import io.kotest.matchers.shouldNotBe
 import me.jimmyberg.springjpa.account.repository.AccountJpaRepository
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntity
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntityFixture
-import me.jimmyberg.springjpa.config.ApplicationConfig
 import me.jimmyberg.springjpa.util.generateUUID
 import org.springframework.boot.test.context.SpringBootTest
-import org.springframework.context.annotation.Import
 import java.util.*
 
-@Import(ApplicationConfig::class)
 @SpringBootTest
 class AccountTransactionStudyRepositoryTest(
     private val repository: AccountTransactionStudyRepository,
