@@ -18,7 +18,7 @@ object EmbeddedRedisTestConfig {
             .also { it.afterPropertiesSet() }
     }
 
-    private fun lettuceConnectionFactory(): LettuceConnectionFactory {
+    fun lettuceConnectionFactory(): LettuceConnectionFactory {
         return LettuceConnectionFactory(EmbeddedRedis.REDIS_HOST, EmbeddedRedis.REDIS_PORT)
             .also { it.afterPropertiesSet() }
     }
