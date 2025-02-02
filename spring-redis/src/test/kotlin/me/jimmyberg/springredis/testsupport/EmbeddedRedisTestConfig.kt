@@ -1,4 +1,4 @@
-package me.jimmyberg.springredis.config
+package me.jimmyberg.springredis.testsupport
 
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory
 import org.springframework.data.redis.core.RedisTemplate

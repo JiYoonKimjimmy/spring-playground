@@ -31,6 +31,9 @@ dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+    // embedded-redis
+    implementation("com.github.codemonstur:embedded-redis:1.4.3")
+
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
     testImplementation("io.projectreactor:reactor-test")
@@ -41,9 +44,6 @@ dependencies {
     testImplementation("io.kotest:kotest-assertions-core:$kotestVersion")
     testImplementation("io.kotest:kotest-property:$kotestVersion")
     testImplementation("io.kotest.extensions:kotest-extensions-spring:1.3.0")
-
-    // embedded-redis
-    testImplementation("com.github.codemonstur:embedded-redis:1.4.3")
 
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 }

@@ -1,4 +1,4 @@
-package me.jimmyberg.springredis.config
+package me.jimmyberg.springredis.testsupport
 
 import io.kotest.core.listeners.AfterSpecListener
 import io.kotest.core.listeners.BeforeSpecListener
