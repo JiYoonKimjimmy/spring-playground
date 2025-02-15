@@ -32,6 +32,8 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
+    implementation("com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.10.0")
+
     runtimeOnly("com.h2database:h2")
 
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
