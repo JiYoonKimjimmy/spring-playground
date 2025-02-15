@@ -19,8 +19,8 @@ class AccountEntityFixture {
         amount: Long = 0,
         member: MemberEntity,
         card: CardEntity? = null
-    ): AccountEntityV2 {
-        return AccountEntityV2(accountNo = accountNo, amount = amount, member = member, card = card)
+    ): V2AccountEntity {
+        return V2AccountEntity(accountNo = accountNo, amount = amount, member = member, card = card)
     }
 
 }

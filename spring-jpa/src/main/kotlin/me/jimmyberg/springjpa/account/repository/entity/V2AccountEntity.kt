@@ -4,9 +4,9 @@ import jakarta.persistence.*
 import me.jimmyberg.springjpa.card.repository.entity.CardEntity
 import me.jimmyberg.springjpa.member.repository.entity.MemberEntity
 
-@Table(name = "ACCOUNTS_V2")
+@Table(name = "V2_ACCOUNTS")
 @Entity
-class AccountEntityV2(
+class V2AccountEntity(
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,6 +32,6 @@ class AccountEntityV2(
     )
 
     fun getCard(): CardEntity? = this.card
-    fun setCard(card: CardEntity): AccountEntityV2 = this.apply { this.card = card }
+    fun setCard(card: CardEntity): V2AccountEntity = this.apply { this.card = card }
 
 }

@@ -4,8 +4,8 @@ import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import me.jimmyberg.springjpa.account.repository.AccountJpaRepositoryV2
-import me.jimmyberg.springjpa.account.repository.entity.AccountEntityV2
+import me.jimmyberg.springjpa.account.repository.V2AccountJpaRepository
+import me.jimmyberg.springjpa.account.repository.entity.V2AccountEntity
 import me.jimmyberg.springjpa.card.repository.entity.CardEntity
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntityFixture
 import me.jimmyberg.springjpa.member.repository.entity.MemberEntityFixture
@@ -18,13 +18,13 @@ import org.springframework.transaction.annotation.Transactional
 @SpringBootTest
 class AccountRelationStudyRepositoryTest(
     private val repository: AccountRelationStudyRepository,
-    private val accountJpaRepository: AccountJpaRepositoryV2
+    private val accountJpaRepository: V2AccountJpaRepository
 ) : StringSpec({
 
     val accountEntityFixture = AccountEntityFixture()
     val memberEntityFixture = MemberEntityFixture()
 
-    val saveAccountEntity: () -> AccountEntityV2 = {
+    val saveAccountEntity: () -> V2AccountEntity = {
         val entity = accountEntityFixture.make(
             accountNo = generateUUID(),
             member = memberEntityFixture.generateEntity(name = "Jim")
