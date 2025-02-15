@@ -5,21 +5,26 @@ import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import me.jimmyberg.springjpa.account.repository.V2AccountJpaRepository
-import me.jimmyberg.springjpa.account.repository.entity.V2AccountEntity
-import me.jimmyberg.springjpa.card.repository.entity.CardEntity
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntityFixture
+import me.jimmyberg.springjpa.account.repository.entity.V2AccountEntity
+import me.jimmyberg.springjpa.card.repository.CardJpaRepository
+import me.jimmyberg.springjpa.card.repository.entity.CardEntity
+import me.jimmyberg.springjpa.member.repository.MemberJpaRepository
 import me.jimmyberg.springjpa.member.repository.entity.MemberEntityFixture
 import me.jimmyberg.springjpa.util.generateUUID
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.dao.InvalidDataAccessApiUsageException
 import org.springframework.transaction.annotation.Transactional
 
 @Transactional
-@SpringBootTest
+@DataJpaTest
 class AccountRelationStudyRepositoryTest(
-    private val repository: AccountRelationStudyRepository,
-    private val accountJpaRepository: V2AccountJpaRepository
+    private val accountJpaRepository: V2AccountJpaRepository,
+    private val memberJpaRepository: MemberJpaRepository,
+    private val cardJpaRepository: CardJpaRepository
 ) : StringSpec({
+
+    val repository = AccountRelationStudyRepository(accountJpaRepository, memberJpaRepository, cardJpaRepository)
 
     val accountEntityFixture = AccountEntityFixture()
     val memberEntityFixture = MemberEntityFixture()
