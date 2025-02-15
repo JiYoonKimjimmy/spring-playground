@@ -1,5 +1,6 @@
 package me.jimmyberg.springjpa.account.repository.study
 
+import me.jimmyberg.springjpa.account.repository.AccountJpaRepository
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntity
 import me.jimmyberg.springjpa.util.printStep
 import org.springframework.stereotype.Repository
@@ -7,7 +8,9 @@ import org.springframework.transaction.annotation.Propagation
 import org.springframework.transaction.annotation.Transactional
 
 @Repository
-class AccountTransactionStudyRepository : AccountStudyRepository() {
+class AccountTransactionStudyRepository(
+    accountJpaRepository: AccountJpaRepository
+) : AccountStudyRepository(accountJpaRepository) {
 
     fun test01(accountNo: String, amount: Long): AccountEntity {
         val entity = findEntity(accountNo).printStep(1)

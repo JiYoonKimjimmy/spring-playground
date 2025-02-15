@@ -4,15 +4,11 @@ import me.jimmyberg.springjpa.account.repository.AccountJpaRepository
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntity
 import me.jimmyberg.springjpa.util.printLog
 import org.slf4j.LoggerFactory
-import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.stereotype.Repository
-import java.util.UUID
+import java.util.*
 
-@Repository
-class AccountStudyRepository {
-    @Autowired
-    private lateinit var accountJpaRepository: AccountJpaRepository
-
+open class AccountStudyRepository(
+    private val accountJpaRepository: AccountJpaRepository
+) {
     // logger
     private val logger = LoggerFactory.getLogger(this::class.java)
 

@@ -8,15 +8,15 @@ import me.jimmyberg.springjpa.account.repository.AccountJpaRepository
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntity
 import me.jimmyberg.springjpa.account.repository.entity.AccountEntityFixture
 import me.jimmyberg.springjpa.util.generateUUID
-import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import java.util.*
 
-@SpringBootTest
+@DataJpaTest
 class AccountTransactionStudyRepositoryTest(
-    private val repository: AccountTransactionStudyRepository,
     private val accountJpaRepository: AccountJpaRepository
 ) : StringSpec({
 
+    val repository = AccountTransactionStudyRepository(accountJpaRepository)
     val accountEntityFixture = AccountEntityFixture()
 
     lateinit var saved: AccountEntity
