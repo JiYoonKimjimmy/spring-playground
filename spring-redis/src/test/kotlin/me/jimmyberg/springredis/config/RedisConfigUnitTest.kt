@@ -7,7 +7,7 @@ import me.jimmyberg.springredis.testsupport.EmbeddedRedisTestListener
 
 class RedisConfigUnitTest : StringSpec({
 
-    extensions(EmbeddedRedisTestListener)
+    extensions(EmbeddedRedisTestListener())
 
     val connectionFactory = EmbeddedRedisTestConfig.lettuceConnectionFactory()
     val stringRedisTemplate = EmbeddedRedisTestConfig.stringRedisTemplate()
