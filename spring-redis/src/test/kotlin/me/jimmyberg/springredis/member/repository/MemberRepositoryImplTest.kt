@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import
 
 @Import(EmbeddedRedisConfig::class)
 @DataRedisTest
-class MemberRepositoryTest(
+class MemberRepositoryImplTest(
     private val memberCrudRepository: MemberCrudRepository
 ) : StringSpec({
 
