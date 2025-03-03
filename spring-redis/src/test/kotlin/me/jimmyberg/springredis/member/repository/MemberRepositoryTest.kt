@@ -13,7 +13,7 @@ class MemberRepositoryTest(
     private val memberCrudRepository: MemberCrudRepository
 ) : StringSpec({
 
-    val memberRepository = MemberRepository(memberCrudRepository)
+    val memberRepository = MemberRepositoryImpl(memberCrudRepository)
 
     "Member 정보 저장하여 정상 확인한다" {
         // given

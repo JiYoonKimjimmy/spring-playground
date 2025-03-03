@@ -1,19 +1,11 @@
 package me.jimmyberg.springredis.member.repository
 
 import me.jimmyberg.springredis.member.repository.entity.MemberEntity
-import org.springframework.stereotype.Repository
 
-@Repository
-class MemberRepository(
-    private val memberCrudRepository: MemberCrudRepository
-) {
+interface MemberRepository {
 
-    fun save(entity: MemberEntity): MemberEntity {
-        return memberCrudRepository.save(entity)
-    }
+    fun save(entity: MemberEntity): MemberEntity
 
-    fun findById(id: Long): MemberEntity? {
-        return memberCrudRepository.findById(id).orElse(null)
-    }
+    fun findById(id: Long): MemberEntity?
 
 }
