@@ -1,0 +1,32 @@
+# spring
+spring:
+  # datasource
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:myPlayground
+    username: sa
+    password:
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 50
+      max-lifetime: 20000
+  # jpa
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    defer-datasource-initialization: true
+    open-in-view: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+
+# decorator
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+      multiline: true
+      logging: slf4j
