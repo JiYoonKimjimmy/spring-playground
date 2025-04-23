@@ -1,12 +1,10 @@
 package me.jimmyberg.springweb.v1.student.repository.jpa
 
 import io.kotest.core.spec.style.BehaviorSpec
-import io.kotest.matchers.comparables.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import me.jimmyberg.springweb.v1.student.repository.entity.StudentEntity
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
-import java.time.LocalDateTime
 import java.util.*
 
 @DataJpaTest
