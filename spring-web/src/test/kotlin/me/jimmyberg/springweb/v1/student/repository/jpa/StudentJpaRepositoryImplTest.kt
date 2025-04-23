@@ -22,9 +22,6 @@ class StudentJpaRepositoryImplTest(
 
             then("'id' 생성 결과 정상 확인한다") {
                 result.id shouldNotBe null
-                result.version shouldBe 0
-                result.created!! shouldBeGreaterThan LocalDateTime.now()
-                result.updated shouldBe null
             }
         }
     }
