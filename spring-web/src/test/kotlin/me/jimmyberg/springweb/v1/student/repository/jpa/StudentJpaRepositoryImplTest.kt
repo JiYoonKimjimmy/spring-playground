@@ -5,21 +5,13 @@ import io.kotest.matchers.comparables.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import me.jimmyberg.springweb.v1.student.repository.entity.StudentEntity
-import org.assertj.core.api.LocalDateTimeAssert
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
-import org.springframework.orm.ObjectOptimisticLockingFailureException
-import org.springframework.transaction.annotation.Transactional
-import java.util.UUID
-import java.util.concurrent.CountDownLatch
-import java.util.concurrent.Executors
-import org.springframework.transaction.PlatformTransactionManager
-import org.springframework.transaction.support.TransactionTemplate
 import java.time.LocalDateTime
+import java.util.*
 
 @DataJpaTest
 class StudentJpaRepositoryImplTest(
     private val studentJpaRepository: StudentJpaRepository,
-    private val transactionManager: PlatformTransactionManager
 ) : BehaviorSpec({
 
     given("Student entity 정보 신규 생성하여") {
@@ -63,7 +55,6 @@ class StudentJpaRepositoryImplTest(
     }
 
     given("Student Entity 정보 'name' 정보 변경하여") {
-        val transactionTemplate = TransactionTemplate(transactionManager)
         val entity = studentJpaRepository.save(StudentEntity(name = "test"))
         val studentId = entity.id!!
 
