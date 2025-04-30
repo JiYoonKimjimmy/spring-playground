@@ -1,6 +1,6 @@
 package me.jimmyberg.springweb.v1.student.repository
 
-import me.jimmyberg.springweb.v1.student.mapper.StudentMapper
+import me.jimmyberg.springweb.v1.student.service.mapper.StudentMapper
 import me.jimmyberg.springweb.v1.student.repository.jpa.StudentJpaRepository
 import me.jimmyberg.springweb.v1.student.service.domain.Student
 import org.springframework.stereotype.Repository
