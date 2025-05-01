@@ -1,8 +1,8 @@
 package me.jimmyberg.springweb.v1.student.service.mapper
 
-import me.jimmyberg.springweb.v1.student.controller.model.SaveStudentRequest
-import me.jimmyberg.springweb.v1.student.controller.model.SaveStudentResponse
-import me.jimmyberg.springweb.v1.student.controller.model.StudentModel
+import me.jimmyberg.springweb.v1.student.controller.model.V1SaveStudentRequest
+import me.jimmyberg.springweb.v1.student.controller.model.V1SaveStudentResponse
+import me.jimmyberg.springweb.v1.student.controller.model.V1StudentModel
 import me.jimmyberg.springweb.v1.student.repository.entity.StudentEntity
 import me.jimmyberg.springweb.v1.student.service.domain.Student
 import org.springframework.stereotype.Component
@@ -24,19 +24,19 @@ class StudentMapper {
         )
     }
 
-    fun domainToModel(domain: Student): StudentModel {
-        return StudentModel(
+    fun domainToModel(domain: Student): V1StudentModel {
+        return V1StudentModel(
             id = domain.id!!,
             name = domain.name
         )
     }
 
-    fun requestToDomain(request: SaveStudentRequest): Student {
+    fun requestToDomain(request: V1SaveStudentRequest): Student {
         return Student(name = request.name)
     }
 
-    fun domainToResponse(domain: Student): SaveStudentResponse {
-        return SaveStudentResponse(data = domainToModel(domain))
+    fun domainToResponse(domain: Student): V1SaveStudentResponse {
+        return V1SaveStudentResponse(data = domainToModel(domain))
     }
 
 }

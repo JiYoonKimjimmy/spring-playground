@@ -4,14 +4,14 @@ import me.jimmyberg.springweb.infrastructure.common.model.BaseResponse
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 
-data class SaveStudentRequest(
+data class V1SaveStudentRequest(
     val name: String
 )
 
-data class SaveStudentResponse(
-    val data: StudentModel
-) : BaseResponse<SaveStudentResponse>() {
-    override fun success(httpStatus: HttpStatus): ResponseEntity<SaveStudentResponse> {
+data class V1SaveStudentResponse(
+    val data: V1StudentModel
+) : BaseResponse<V1SaveStudentResponse>() {
+    override fun success(httpStatus: HttpStatus): ResponseEntity<V1SaveStudentResponse> {
         return ResponseEntity(this, httpStatus)
     }
 
