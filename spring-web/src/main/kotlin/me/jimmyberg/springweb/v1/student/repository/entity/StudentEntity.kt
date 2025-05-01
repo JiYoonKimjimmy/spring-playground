@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 import jakarta.persistence.Table
-import me.jimmyberg.springweb.v1.base.entity.BaseEntity
+import me.jimmyberg.springweb.infrastructure.common.entity.BaseEntity
 
 @Entity
 @Table(name = "STUDENTS")
