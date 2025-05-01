@@ -5,14 +5,14 @@ import io.kotest.matchers.comparables.shouldBeGreaterThan
 import io.kotest.matchers.comparables.shouldBeLessThan
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
-import me.jimmyberg.springweb.infra.config.SpringWebApplicationConfig
+import me.jimmyberg.springweb.infrastructure.config.ApplicationConfig
 import me.jimmyberg.springweb.v1.student.repository.entity.StudentEntity
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest
 import org.springframework.context.annotation.Import
 import java.time.LocalDateTime
 import java.util.*
 
-@Import(SpringWebApplicationConfig::class)
+@Import(ApplicationConfig::class)
 @DataJpaTest
 class StudentJpaRepositoryImplTest(
     private val studentJpaRepository: StudentJpaRepository,

@@ -1,4 +1,4 @@
-package me.jimmyberg.springweb.v1.base.entity
+package me.jimmyberg.springweb.infrastructure.common.entity
 
 import jakarta.persistence.EntityListeners
 import jakarta.persistence.MappedSuperclass
