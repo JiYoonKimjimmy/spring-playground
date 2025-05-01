@@ -1,7 +1,7 @@
 package me.jimmyberg.springweb.v1.student.controller
 
-import me.jimmyberg.springweb.v1.student.controller.model.SaveStudentRequest
-import me.jimmyberg.springweb.v1.student.controller.model.SaveStudentResponse
+import me.jimmyberg.springweb.v1.student.controller.model.V1SaveStudentRequest
+import me.jimmyberg.springweb.v1.student.controller.model.V1SaveStudentResponse
 import me.jimmyberg.springweb.v1.student.service.StudentSaveService
 import me.jimmyberg.springweb.v1.student.service.mapper.StudentMapper
 import org.springframework.http.HttpStatus
@@ -19,7 +19,7 @@ class V1StudentManagementController(
 ) {
 
     @PostMapping("/student")
-    fun saveStudent(@RequestBody request: SaveStudentRequest): ResponseEntity<SaveStudentResponse> {
+    fun saveStudent(@RequestBody request: V1SaveStudentRequest): ResponseEntity<V1SaveStudentResponse> {
         return studentMapper.requestToDomain(request)
             .let { studentSaveService.save(it) }
             .let { studentMapper.domainToResponse(it) }
